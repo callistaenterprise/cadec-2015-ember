@@ -7,5 +7,5 @@ module.exports = function(app) {
         {id: 2, title: 'Simple sample title 2', meta: 'some meta data 2', body: 'Lorem ipsum 2'}
       ]});
   });
-  app.use('/api/blog-post/:id?', blogPostRouter);
+  app.use('/api/blogPosts/:id?', blogPostRouter);
 };
