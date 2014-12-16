@@ -9,13 +9,12 @@
 
         <div class="col-sm-8 blog-main">
 
-          {{#each model}}
+          {{#each post in model}}
               <div class="blog-post">
-                  <h2 class="blog-post-title">{{title}}</h2>
+                  <h2 class="blog-post-title">{{post.title}}</h2>
 
-                  <p class="blog-post-meta">{{meta}}</p>
+                {{post.body}}
 
-                {{body}}
               </div>
           {{/each}}
 
