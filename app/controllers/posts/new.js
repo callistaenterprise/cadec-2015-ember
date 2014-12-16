@@ -19,6 +19,7 @@ export default Ember.ArrayController.extend({
 
       // Save the new model
       post.save();
+      this.transitionTo('posts');
     }
   }
 });
