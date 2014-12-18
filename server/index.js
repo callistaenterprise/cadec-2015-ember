@@ -3,11 +3,22 @@ module.exports = function(app) {
   var bodyParser = require('body-parser');
   var mocks      = globSync('./mocks/**/*.js', { cwd: __dirname }).map(require);
   var proxies    = globSync('./proxies/**/*.js', { cwd: __dirname }).map(require);
+  var data    = globSync('./data/**/*.js', { cwd: __dirname }).map(require);
 
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({
     extended: true
   }));
+
+  // Database
+  var mongo = require('mongoskin');
+  ObjectID = require('mongoskin').ObjectID
+  var db = mongo.db("mongodb://localhost:27017/cadec-2015", {native_parser:true});
+
+  app.use(function(req,res,next){
+    req.db = db;
+    next();
+  });
 
   mocks.forEach(function(route) { route(app); });
 
