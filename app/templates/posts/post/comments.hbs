@@ -1,0 +1,7 @@
+{{#each comment in model}}
+    <div class="blog-post">
+        <h3>{{comment.answer}}</h3>
+        {{date-time comment.date "YYYYMMMDD"}}
+    </div>
+{{/each}}
+{{outlet}}
