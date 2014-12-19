@@ -1,7 +1,7 @@
 {{#each comment in model}}
     <div class="blog-post">
         <h3>{{comment.answer}}</h3>
-        {{date-time comment.date "YYYYMMMDD"}}
+        {{date-time comment.date "YYYY-MM-DD HH:mm"}}
     </div>
 {{/each}}
 {{outlet}}
