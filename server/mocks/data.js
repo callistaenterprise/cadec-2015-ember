@@ -3,6 +3,17 @@ module.exports = function(app) {
   var dataRouter = express.Router();
 
   var clean = function(db, message){
+
+    db.collection('counters').remove({},function(err, result){
+      var message = "";
+      if(err){
+        message += "[error while cleaning " + table.name +", error " + err +"],";
+      } else {
+        message += "[removed:" + result + " lines from counters],";
+      }
+      console.log(message);
+    });
+
     data.forEach( function(table){
       db.collection(table.name).remove({}, function(err, result){
         var message = "";
@@ -16,6 +27,7 @@ module.exports = function(app) {
     });
   };
   var insertAll = function(db, message){
+
     data.forEach( function(table){
       db.collection(table.name).insert(table.data, function(err, result){
         var message = "";
@@ -24,8 +36,33 @@ module.exports = function(app) {
         } else {
           message += "[inserted:" + result + " lines into " + table.name + "],";
         }
+
         console.log(message);
+
+        console.log('------');
+        var counterName = table.name+"id";
+        console.log('creating counter for : ' + counterName);
+        // sequences
+        db.collection("counters").insert(
+          {
+            _id: counterName,
+            seq: 10
+          },
+          function(err, result){
+            if(err){
+              message += "[error while inserting on " + table.name +", error " + err +"],";
+            } else {
+              message += "[inserted:" + result + " lines into " + table.name + "],";
+            }
+            console.log(message);
+          }
+        );
+
       });
+
+
+
+
     });
   }
   dataRouter.get('/clean', function(req, res) {

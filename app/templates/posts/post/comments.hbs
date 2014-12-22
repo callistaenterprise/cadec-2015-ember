@@ -4,4 +4,6 @@
         {{date-time comment.date "YYYY-MM-DD HH:mm"}}
     </div>
 {{/each}}
+{{textarea value=commentText cols="50" rows="6"}}
+<button {{action "post"}}>Post</button>
 {{outlet}}
