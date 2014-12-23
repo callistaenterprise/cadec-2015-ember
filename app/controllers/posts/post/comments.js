@@ -4,9 +4,6 @@ export default Ember.ArrayController.extend({
   needs: "posts/post",
   postModel: Ember.computed.alias("controllers.posts/post.model"),
   comentText : '',
-  /*wcomments : function(){
-    return this.get('model');
-  }.property('model.@each'),*/
   actions : {
     post : function(){
       var self = this;
@@ -17,27 +14,12 @@ export default Ember.ArrayController.extend({
         date: now
       });
 
-      /*postModel.get('comments').addObject(comment);
-
-      comment.save().then(function(acomment){
-
-          postModel.save().then(
-            function(){
-              self.set('commentText', '');
-            },
-            function (error) {
-              console.log("API error occured - " + error.responseText);
-              alert("An error occured - REST API not available - Please try again");
-            });
-*/
       comment.save().then(function(acomment){
         postModel.get('comments').then(function(){
             //self.logState('2. post', postModel);
             console.log("comment id : " + acomment.get('id'));
             postModel.get('comments').addObject(acomment);
-
             //self.logState('3. post', postModel);
-
             postModel.save().then(
               function(){
                 self.set('commentText', '');

@@ -14,8 +14,14 @@
                 {{#link-to 'posts.post.comments' post}}
                   <h2 class="blog-post-title">{{post.title}}</h2>
                 {{/link-to}}
+                {{#if isEditing}}
+                  {{textarea value=post.body cols="50" rows="6"}}
+                  <button {{action "saveEdits" post}}>Save Edit</button>
+                {{else}}
+                  {{post.body}}
+                  <button {{action "edit" post}}>Edit</button>
+                {{/if}}
 
-                {{post.body}}
 
               </div>
           {{/each}}
