@@ -50,7 +50,7 @@ module.exports = function(app) {
     db.collection(name + 's').findById(id, function(err, result) {
       if(result !== null){
         var obj ={};
-        obj[name] = result;
+        obj[name] = _idToId(result);
         res.json(obj);
       } else {
         var obj ={};
@@ -59,6 +59,22 @@ module.exports = function(app) {
       }
     });
   };
+
+  db.find = function(name, query, db, res){
+    if(query){
+      db.collection(name).find(query).toArray(function (err, items) {
+        obj = {};
+        obj[name] = _idToId(items);
+        res.json(obj);
+      });
+    } else {
+      db.collection(name).find().toArray(function (err, items) {
+        obj = {};
+        obj[name] = _idToId(items);
+        res.json(obj);
+      });
+    }
+  }
 
   db.put = function(name, db, res, req){
     if(req.body && req.body[name]){
@@ -82,6 +98,29 @@ module.exports = function(app) {
       res.send((result === 1) ? {  } : { msg:'error: ' + err });
     });
   }
+
+  _idToId = function(objects){
+    if(objects) {
+      var convertId = function(object){
+        if (object._id) {
+          object.id = object._id;
+          delete object._id;
+        }
+      }
+      if(objects instanceof Array) {
+        objects.forEach(function(object) {
+          convertId(object);
+        });
+        return objects;
+      } else {
+        convertId(objects);
+        return objects;
+      }
+    } else {
+      return objects;
+    }
+  };
+
   app.use(function(req, res, next) {
     req.db = db;
     next();

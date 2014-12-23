@@ -37,6 +37,7 @@
     "mongoskin": "^1.4.4"
   },
   "dependencies": {
-    "ember-moment": "^1.0.0"
+    "ember-moment": "^1.0.0",
+    "mongoosemask": "0.0.6"
   }
 }

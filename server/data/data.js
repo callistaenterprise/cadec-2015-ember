@@ -6,9 +6,9 @@ data = [
 ]},
 
   {name:'posts', data : [
-  {'_id':'1', 'title':'Stephens Blog', 'body':'Ember Rocks!', 'user':'1', 'comments':['10', '11']},
-  {'_id':'2', 'title':'Jonases Blog', 'body':'A host, of golden daffodils', 'user':'2', 'comments':['20', '21']},
-  {'_id':'3', 'title':'Sedinas Blog', 'body':'I wandered lonely as a cloud', 'user':'3', 'comments':['30', '31']}
+  {'_id':'1', 'title':'Stephens Blog', 'body':'Ember Rocks!', 'user':'1', 'comments':['1', '2']},
+  {'_id':'2', 'title':'Jonases Blog', 'body':'A host, of golden daffodils', 'user':'2', 'comments':['3', '4']},
+  {'_id':'3', 'title':'Sedinas Blog', 'body':'I wandered lonely as a cloud', 'user':'3', 'comments':['5', '6']}
 ]},
 
 {name:'comments', data : [

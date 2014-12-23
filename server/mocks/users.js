@@ -5,9 +5,7 @@ module.exports = function(app) {
 
   usersRouter.get('/', function(req, res) {
     var db = req.db;
-    db.collection('users').find().toArray(function (err, items) {
-      res.json({'users':items});
-    });
+    db.find('users', null, db, res);
   });
 
   usersRouter.get('/:id?', function(req, res) {

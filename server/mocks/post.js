@@ -4,18 +4,11 @@ module.exports = function(app) {
 
   postsRouter.get('/', function(req, res) {
     var db = req.db;
-    console.log("user id" + req.query.user_id);
-    if(req.query.user_id){
-      var query = {'user' : req.query.user_id};
-      db.collection('posts').find(query).toArray(function (err, items) {
-        res.json({'posts':items});
-      });
-    } else {
-      db.collection('posts').find().toArray(function (err, items) {
-        res.json({'posts':items});
-      });
+    var query = null;
+    if(req.query.post_id){
+      query = {'user' : req.query.user_id};
     }
-
+    db.find('posts', query, db, res);
   });
 
   postsRouter.get('/:id?', function(req, res) {

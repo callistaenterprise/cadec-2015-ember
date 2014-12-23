@@ -1,44 +1,52 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+export default Ember.ArrayController.extend({
   needs: "posts/post",
   postModel: Ember.computed.alias("controllers.posts/post.model"),
   comentText : '',
+  /*wcomments : function(){
+    return this.get('model');
+  }.property('model.@each'),*/
   actions : {
     post : function(){
+      var self = this;
       var postModel = this.get('postModel');
       var now = new Date();
-      var comment = this.store.createRecord('comment', {
-        answer : this.get('commentText'),
+      var comment = self.store.createRecord('comment', {
+        answer : self.get('commentText'),
         date: now,
         post: postModel
       });
 
-      postModel.save();
+      comment.save().then(function(){
 
-      var comments = postModel.get('comments').then(
-        function(){
-          comments.addObject(comment);
-          postModel.save();
-        }
-      );
+        postModel.get('comments').then(function(){
+          self.logState('2. post', postModel);
 
+          postModel.get('comments').addObject(comment);
 
-     /* comment.save().then(
-        function(){
-          var comments = postModel.get('comments').then(
+          self.logState('3. post', postModel);
+
+          postModel.save().then(
             function(){
-              comments.addObject(comment);
-              postModel.save().then(function(){
-                self.set('commentText', '');
-              });
+              self.set('commentText', '');
+            },
+            function (error) {
+              console.log("API error occured - " + error.responseText);
+              alert("An error occured - REST API not available - Please try again");
             });
-        },
-        function(error){
-          console.log("error while saving comment :" + error);
-        }
-      );*/
+          self.logState('1. post', postModel);
+        });
+
+
+      }, function(err) {
+        // Error callback
+        console.log(err);
+      });
 
     }
+  },
+  logState : function(text, object){
+    console.log(text + ":" + "isDirty" +object.get('isDirty') + ", isSaving :" +object.get('isSaving') + ", isLoading :" +object.get('isLoading') + ", isLoaded" +object.get('isLoaded'));
   }
 });

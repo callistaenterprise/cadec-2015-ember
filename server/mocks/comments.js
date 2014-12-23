@@ -4,16 +4,11 @@ module.exports = function(app) {
 
   commentsRouter.get('/', function(req, res) {
     var db = req.db;
+    var query = null;
     if(req.query.post_id){
-      var query = {'post' : req.query.post_id};
-      db.collection('comments').find(query).toArray(function (err, items) {
-        res.json({'comments':items});
-      });
-    } else {
-      db.collection('comments').find().toArray(function (err, items) {
-        res.json({'comments':items});
-      });
+      query = {'post' : req.query.post_id};
     }
+    db.find('comments', query, db, res);
 
   });
 
