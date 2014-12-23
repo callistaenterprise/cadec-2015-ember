@@ -34,7 +34,7 @@ module.exports = function(app) {
       db.collection(name + 's').insert(body, function(err, result) {
         if (result !== null && result.length > 0) {
           var obj = {};
-          obj[name] = result[0];
+          obj[name] = _idToId(result[0]);
           res.json(obj);
         } else {
           var obj = {};
@@ -79,6 +79,7 @@ module.exports = function(app) {
   db.put = function(name, db, res, req){
     if(req.body && req.body[name]){
       var payload = req.body[name];
+      console.log("payload" + JSON.stringify(payload));
       if(payload._id){
         delete payload._id;
       }
