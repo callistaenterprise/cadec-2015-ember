@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.ArrayController.extend({
   needs: "posts/post",
   postModel: Ember.computed.alias("controllers.posts/post.model"),
-  comentText : '',
+  commentText : '',
   actions : {
     post : function(){
       var self = this;
@@ -11,15 +11,14 @@ export default Ember.ArrayController.extend({
       var now = new Date();
       var comment = self.store.createRecord('comment', {
         answer : self.get('commentText'),
-        date: now
+        date: now,
+        post: postModel
       });
 
-      comment.save().then(function(acomment){
-        postModel.get('comments').then(function(){
-            //self.logState('2. post', postModel);
-            console.log("comment id : " + acomment.get('id'));
-            postModel.get('comments').addObject(acomment);
-            //self.logState('3. post', postModel);
+
+      comment.save().then(function(){
+        postModel.get('comments').then(function(comments){
+            comments.addObject(comment);
             postModel.save().then(
               function(){
                 self.set('commentText', '');
@@ -28,10 +27,8 @@ export default Ember.ArrayController.extend({
                 console.log("API error occured - " + error.responseText);
                 alert("An error occured - REST API not available - Please try again");
               });
-            //self.logState('1. post', postModel);
-          });
+            });
       }, function(err) {
-        // Error callback
         console.log(err);
       });
 
