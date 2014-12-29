@@ -1,35 +1,28 @@
 <div class="container">
 
-    <div class="blog-header">
-        <h1 class="blog-title">Ember.js tutorial blog</h1>
-        <p class="lead blog-description">The official Cadec 2015 blog</p>
+    <div class="row">
+        <h1>Ember.js tutorial blog</h1>
+        <p>The official Cadec 2015 blog</p>
+        <hr>
     </div>
 
     <div class="row">
 
-        <div class="col-sm-6 blog-main">
+        <div class="col-md-3">
 
           {{#each post in model}}
-              <div class="blog-post">
-                {{#link-to 'posts.post.comments' post}}
-                  <h2 class="blog-post-title">{{post.title}}</h2>
-                {{/link-to}}
-                {{#if isEditing}}
-                  {{textarea value=post.body cols="50" rows="6"}}
-                  <button {{action "saveEdits" post}}>Save Edit</button>
-                {{else}}
-                  {{post.body}}
-                  <button {{action "edit" post}}>Edit</button>
-                {{/if}}
+              <div >
+                <h4>{{#link-to 'posts.post.comments' post}}
+                  {{post.title}} {{/link-to}} <p></p><small><em> by {{post.user.username}} </em></small><p></p> </h4>
 
-
+                  <hr>
               </div>
           {{/each}}
 
         </div><!-- /.blog-main -->
 
-        <div class="col-sm-5 col-sm-offset-1 blog-sidebar">
-            <div class="sidebar-module sidebar-module-inset">
+        <div class="col-sm-8 col-sm-offset-1">
+            <div class="">
                 {{outlet}}
             </div>
         </div><!-- /.blog-sidebar -->

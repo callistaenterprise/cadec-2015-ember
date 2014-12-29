@@ -4,6 +4,7 @@ export default Ember.ArrayController.extend({
   needs: "posts/post",
   postModel: Ember.computed.alias("controllers.posts/post.model"),
   commentText : '',
+  isCommenting : false,
   actions : {
     post : function(){
       var self = this;
@@ -22,6 +23,7 @@ export default Ember.ArrayController.extend({
             postModel.save().then(
               function(){
                 self.set('commentText', '');
+                self.set('isCommenting', false);
               },
               function (error) {
                 console.log("API error occured - " + error.responseText);
@@ -32,6 +34,9 @@ export default Ember.ArrayController.extend({
         console.log(err);
       });
 
+    },
+    addComment : function(){
+      this.set('isCommenting', true);
     }
   },
   logState : function(text, object){

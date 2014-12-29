@@ -18,6 +18,8 @@ Router.map(function() {
     this.route("new");
     this.route("delete");
   });
+
+  this.resource("users", function() {});
 });
 
 export default Router;

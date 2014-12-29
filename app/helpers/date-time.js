@@ -7,6 +7,8 @@ export function dateTime(date, format) {
   }
   if(!format || !(typeof format === 'string' || format instanceof String)){
     return moment(date).format('YYYY-MM-DD');
+  } else if(format === 'fromTo'){
+    return moment(date).fromNow();
   } else {
     return moment(date).format(format);
   }

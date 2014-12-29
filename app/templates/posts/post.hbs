@@ -1,2 +1,9 @@
-<h4 class="blog-post-title">{{title}}</h4>
+{{#if isEditing}}
+  {{partial "posts/p-edit"}}
+{{else}}
+  <button {{action "edit" this}} class="btn btn-default">Edit</button>
+{{/if}}
+<h3>{{title}}</h3>
+<p>{{markdown-formatter body}}</p>
+<hr>
 {{outlet}}
