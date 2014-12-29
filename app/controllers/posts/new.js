@@ -1,25 +1,14 @@
 import Ember from 'ember';
 
-export default Ember.ArrayController.extend({
+export default Ember.ObjectController.extend({
   actions: {
-    createPost: function() {
-      var title = this.get('title');
-      var meta = this.get('meta');
-      var body = this.get('body');
-
-      var post = this.store.createRecord('post', {
-        title: title,
-        meta: meta,
-        body: body
+    done: function() {
+      var self = this;
+      this.get('model').save().then(function(post){
+        self.transitionTo('posts.post', post.get('id'));
+      }, function(err) {
+        console.log(err);
       });
-
-      this.set('title', '');
-      this.set('meta', '');
-      this.set('body', '');
-
-      // Save the new model
-      post.save();
-      this.transitionTo('posts');
     }
   }
 });
