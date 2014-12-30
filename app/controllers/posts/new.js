@@ -9,6 +9,10 @@ export default Ember.ObjectController.extend({
       }, function(err) {
         console.log(err);
       });
+    },
+    cancel : function(post){
+      post.destroyRecord();
+      this.transitionTo('posts');
     }
   }
 });

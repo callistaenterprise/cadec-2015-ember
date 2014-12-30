@@ -19,7 +19,15 @@ Router.map(function() {
     this.route("delete");
   });
 
-  this.resource("users", function() {});
+  this.resource("users", function() {
+    this.route("user", {
+      path: ":user_id"
+    });
+
+    this.route("new");
+  });
+
+  this.route("login");
 });
 
 export default Router;

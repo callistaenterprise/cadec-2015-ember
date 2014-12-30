@@ -5,7 +5,13 @@ module.exports = function(app) {
 
   usersRouter.get('/', function(req, res) {
     var db = req.db;
-    db.find('users', null, db, res);
+    if(req.query.username){
+      var query = null;
+      query = {'username' : req.query.username};
+      db.find('users', query, db, res);
+    } else {
+      db.find('users', null, db, res);
+    }
   });
 
   usersRouter.get('/:id?', function(req, res) {

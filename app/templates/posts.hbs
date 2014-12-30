@@ -1,33 +1,30 @@
-<div class="container">
+<h2>Posts</h2>
+<hr>
+<div class="row">
 
-    <div class="row">
-        <h1>Ember.js tutorial blog</h1>
-        <p>The official Cadec 2015 blog</p>
+  <div class="col-md-3">
+
+    {{link-to 'New' 'posts.new' class="btn btn-default"}}
+    {{#each post in model}}
+      <div>
+        <h4>{{#link-to 'posts.post.comments' post}}
+          {{post.title}} {{/link-to}} <p></p>
+          <small><em> by {{post.user.username}} </em></small>
+        </h4>
         <hr>
+      </div>
+    {{/each}}
+
+  </div>
+  <!-- /.blog-main -->
+
+  <div class="col-sm-8 col-sm-offset-1">
+    <div class="">
+      {{outlet}}
     </div>
+  </div>
+  <!-- /.blog-sidebar -->
 
-    <div class="row">
+</div><!-- /.row -->
 
-        <div class="col-md-3">
 
-          {{link-to 'New' 'posts.new' class="btn btn-default"}}
-          {{#each post in model}}
-              <div >
-                <h4>{{#link-to 'posts.post.comments' post}}
-                  {{post.title}} {{/link-to}} <p></p><small><em> by {{post.user.username}} </em></small><p></p> </h4>
-
-                  <hr>
-              </div>
-          {{/each}}
-
-        </div><!-- /.blog-main -->
-
-        <div class="col-sm-8 col-sm-offset-1">
-            <div class="">
-                {{outlet}}
-            </div>
-        </div><!-- /.blog-sidebar -->
-
-    </div><!-- /.row -->
-
-</div><!-- /.container -->

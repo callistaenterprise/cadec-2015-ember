@@ -1,23 +1,34 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-6">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#link-to 'posts' class='navbar-brand'}}Cadec Blogs{{/link-to}}
+    </div>
 
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
-      <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          {{#link-to 'posts' class='navbar-brand'}}Cadec Blogs{{/link-to}}
-        </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>{{#link-to 'posts'}}<i class="fa fa-envelope"></i> Posts{{/link-to}}</li>
+        <li>{{#link-to 'users'}}<i class="fa fa-users"></i> Users{{/link-to}}</li>
+      </ul>
 
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li>{{#link-to 'posts'}}<i class="fa fa-envelope"></i> Posts{{/link-to}}</li>
-            <li>{{#link-to 'users'}}<i class="fa fa-users"></i> Users{{/link-to}}</li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div>
-    </nav>
+      <p class="navbar-text navbar-right">
+        {{#if isLoggedIn}}
+          Signed in as {{username}}
+        {{else}}
+          {{#link-to 'login'}}{{username}}{{/link-to}}
+        {{/if}}
+
+      </p>
+    </div>
+    <!-- /.navbar-collapse -->
+
+  </div>
+</nav>
 
