@@ -13,7 +13,7 @@ export default Ember.ObjectController.extend({
     cancel : function(post){
       post.rollback();
       this.set('isEditing', false);
-      this.transitionTo('posts.post', user.get('id'));
-    },
+      this.transitionTo('posts.post', post.get('id'));
+    }
   }
 });

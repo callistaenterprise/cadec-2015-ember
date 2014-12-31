@@ -27,7 +27,9 @@ Router.map(function() {
     this.route("new");
   });
 
-  this.route("login");
+  this.resource("login", function() {
+    this.route("newUser");
+  });
 });
 
 export default Router;

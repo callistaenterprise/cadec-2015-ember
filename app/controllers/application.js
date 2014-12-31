@@ -18,5 +18,13 @@ export default Ember.Controller.extend({
     } else {
       return 'Please sign in!';
     }
-  }.property('session.currentUser', 'session.currentUser.username')
+  }.property('session.currentUser', 'session.currentUser.username'),
+
+  currentPathDidChange: function() {
+    var path = this.get('currentPath');
+    console.log('path changed to: ', path);
+    if(!this.get('isLoggedIn')){
+      this.transitionToRoute('login');
+    }
+  }.observes('currentPath')
 });

@@ -3,9 +3,10 @@
 <form>
   <div class="form-group">
     <label for="username">User name</label>
-    {{input type='text' value=username class="form-control" id="username" placeholder="username"}}
+    {{input type='text' value=username class="form-control" id="login-username" placeholder="username"}}
   </div>
   <button {{action "login" this}} class="btn btn-default">Login</button>
 </form>
 <hr>
-{{#link-to 'users.new'}}New User{{/link-to}}
+{{#link-to 'login.newUser'}}New User{{/link-to}}
+{{outlet}}
