@@ -18,14 +18,19 @@
         <li>{{#link-to 'users'}}<i class="fa fa-users"></i> Users{{/link-to}}</li>
       </ul>
 
-      <p class="navbar-text navbar-right">
-        {{#if isLoggedIn}}
-          Signed in as {{username}}
-        {{else}}
-          {{#link-to 'login'}}{{username}}{{/link-to}}
-        {{/if}}
-
-      </p>
+	    <ul class="nav navbar-nav navbar-right">
+	    	
+	      	{{#if isLoggedIn}}
+	        	<p class="navbar-text"> Signed in as {{username}} </p>
+				<li>{{#link-to 'logoff'}}<i class="fa fa-power-off"></i> Log off{{/link-to}}</li>
+	      	  {{else}}
+	        	<p class="navbar-text">{{#link-to 'login.login'}}{{username}}{{/link-to}}</p>
+	      	 	
+			  {{/if}}
+	    	 
+	        
+	    </ul>
+      
     </div>
     <!-- /.navbar-collapse -->
 

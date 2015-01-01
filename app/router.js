@@ -28,8 +28,11 @@ Router.map(function() {
   });
 
   this.resource("login", function() {
+ 	this.route("login");
     this.route("newUser");
   });
+
+  this.route("logoff");
 });
 
 export default Router;

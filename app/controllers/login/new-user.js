@@ -14,7 +14,7 @@ export default Ember.ObjectController.extend({
     cancel: function(user) {
       user.rollback();
       this.set('isEditing', false);
-      this.transitionToRoute('login');
+      this.transitionToRoute('login.login');
     }
   }
 });

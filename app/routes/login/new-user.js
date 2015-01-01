@@ -7,4 +7,7 @@ export default Ember.Route.extend({
       email: ''
     });
   }
+  // renderTemplate: function() {
+//       this.render({ outlet: 'login' });
+//     }
 });

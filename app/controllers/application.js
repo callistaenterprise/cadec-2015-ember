@@ -22,9 +22,10 @@ export default Ember.Controller.extend({
 
   currentPathDidChange: function() {
     var path = this.get('currentPath');
-    console.log('path changed to: ', path);
-    if(!this.get('isLoggedIn')){
-      this.transitionToRoute('login');
-    }
+	if(path && path.indexOf('login') === -1 ){
+    	if(!this.get('isLoggedIn')){
+      	  this.transitionToRoute('login');
+    	}
+	}
   }.observes('currentPath')
 });
