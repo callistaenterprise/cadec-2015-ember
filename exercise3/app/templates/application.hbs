@@ -1,5 +1,10 @@
-<h1>Ember.js Tutorial</h1>
-<p>Cadec 2015</p>
-<hr>
+<div id="wrap">
+    {{partial 'p-header'}}
 
-{{outlet}}
+    <!-- Page content -->
+    <div class="container">
+      {{outlet}}
+    </div>
+
+   {{partial 'p-header'}}
+</div>
