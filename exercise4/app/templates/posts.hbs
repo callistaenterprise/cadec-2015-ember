@@ -1,0 +1,16 @@
+<div>
+    <h1>Posts</h1>
+</div>
+
+{{#each post in model}}
+    <div>
+        <h4>
+          {{#link-to 'posts.post' post}}
+            {{post.title}} {{/link-to}}
+            <p></p>
+        </h4>
+        <hr>
+    </div>
+{{/each}}
+
+{{outlet}}
