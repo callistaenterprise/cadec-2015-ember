@@ -1,0 +1,56 @@
+{
+  "name": "blogs-app",
+  "version": "0.0.0",
+  "private": true,
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "ember server",
+    "build": "ember build",
+    "test": "ember test",
+	"preinstall": "npm link ../blogs-domain",
+	"preupdate": "npm link ../blogs-domain",
+	"preinstall": "npm link ../blogs-client",
+	"preupdate": "npm link ../blogs-client",
+	"preinstall": "npm link ../users-client",
+	"preupdate": "npm link ../users-domain",
+	"preinstall": "npm link ../login-client"
+  },
+  "repository": "https://github.com/stefanpenner/ember-cli",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "body-parser": "^1.2.0",
+    "broccoli-asset-rev": "0.3.1",
+    "connect-restreamer": "^1.0.1",
+    "ember-cli": "^0.1.4",
+    "ember-cli-content-security-policy": "0.3.0",
+    "ember-cli-font-awesome": "0.0.7",
+    "ember-cli-htmlbars": "^0.6.0",
+    "ember-cli-ic-ajax": "0.1.1",
+    "ember-cli-inject-live-reload": "^1.3.0",
+    "ember-cli-moment": "0.0.1",
+    "ember-cli-qunit": "0.1.0",
+    "ember-data": "^1.0.0-beta.14",
+    "ember-export-application-global": "^1.0.0",
+    "express": "^4.8.5",
+    "glob": "^4.0.5",
+    "mongodb": "^1.4.24",
+    "mongoskin": "^1.4.4",
+	"blogs-client": "*",
+	"blogs-domain": "*",
+	"login-client": "*",
+	"users-client": "*",
+	"users-domain": "*"
+	
+  },
+  "dependencies": {
+    "ember-moment": "^1.0.0",
+    "mongoosemask": "0.0.6"
+  }
+}

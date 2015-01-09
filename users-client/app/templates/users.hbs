@@ -1,0 +1,26 @@
+<h2>Users</h2>
+<hr>
+<div class="row">
+
+  <div class="col-md-3">
+
+    {{link-to 'New User' 'users.new' class="btn btn-default"}}
+    {{#each user in this}}
+      <div>
+        <h4>{{#link-to 'users.user' user}}
+          {{user.username}} {{/link-to}}
+        </h4>
+        <hr>
+      </div>
+    {{/each}}
+  </div>
+  <!-- /.blog-main -->
+
+  <div class="col-sm-8 col-sm-offset-1">
+    <div class="">
+      {{outlet}}
+    </div>
+  </div>
+  <!-- /.blog-sidebar -->
+
+</div><!-- /.row -->

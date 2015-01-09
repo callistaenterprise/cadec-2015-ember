@@ -23,14 +23,7 @@ You will need the following things properly installed on your computer.
 ## Running / Development
 
 * `ember server`
-* setup test data :
-*  Visit http://localhost:4200/api/data/reset
-* Then : 
-*  Visit your app at http://localhost:4200/login
-
-Use one of : stephen, sedina, jonas to login, only username required
-Or create a new user.
-The user will be used on posts and comments
+* Visit your app at http://localhost:4200.
 
 ### Code Generators
 

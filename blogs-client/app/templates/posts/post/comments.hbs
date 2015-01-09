@@ -1,0 +1,21 @@
+<h4>Comments</h4>
+{{#each comment in model}}
+    <p>
+        <small><em>{{comment.user.username}} says :</em></small>
+        {{markdown-formatter comment.answer}}
+        (<small><em>{{date-time comment.date "fromTo"}}</em></small>)
+    </p>
+  <hr>
+{{/each}}
+{{#if isCommenting}}
+  <form>
+    <div class="form-group">
+      <label for="commentText">Comment :</label>
+      {{textarea value=commentText cols="50" rows="6" class="form-control" id="commentText"}}
+    </div>
+    <button {{action "post" this}} class="btn btn-default">Post</button>
+  </form>
+{{else}}
+  <button {{action "addComment" this}} class="btn btn-default">Add Comment</button>
+{{/if}}
+{{outlet}}
