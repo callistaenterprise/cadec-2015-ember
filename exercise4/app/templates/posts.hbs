@@ -1,18 +1,29 @@
 <div>
-    <h1>Posts</h1>
+  <h1>Posts</h1>
+  <hr>
 </div>
 
-{{#each post in model}}
-    <div>
+<div class="row">
+
+  <div class="col-md-3">
+    <div>{{#link-to 'posts.new' class='btn btn-primary btn-lg active' role='button'}}New Post{{/link-to}}</div>
+    {{#each post in model}}
+      <div>
         <h4>
-          {{#link-to 'posts.post' post}}
+          {{#link-to 'posts.post.comments' post}}
             {{post.title}} {{/link-to}}
-            <p></p>
+          <p></p>
         </h4>
         <hr>
-    </div>
-{{/each}}
+      </div>
+    {{/each}}
+  </div>
 
-<div>{{#link-to 'posts.new' class='btn btn-primary btn-lg active' role='button'}}New Post{{/link-to}}</div>
+  <div class="col-sm-8 col-sm-offset-1">
 
-{{outlet}}
+    {{outlet}}
+
+  </div>
+
+
+</div>

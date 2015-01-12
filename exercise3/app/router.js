@@ -5,10 +5,16 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
-Router.map(function() {
-  this.route('posts');
-  this.route('posts.post', { path: '/posts/:post_id'});
-
+Router.map( function() {
+  this.resource("posts", function() {
+    this.resource("posts.post", {
+      path: ":post_id"
+    }, function() {
+        this.resource("posts.post.comments", {
+          path: "comments"
+        }, function() {});
+      });
+  });
 });
 
 export default Router;
