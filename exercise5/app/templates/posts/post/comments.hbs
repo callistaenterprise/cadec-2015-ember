@@ -4,7 +4,10 @@
 
 <ul class='comments'>
   {{#each comment in comments}}
-    <li class="alert alert-info">{{comment.body}}</li>
+  <li class="alert alert-info">
+      <p>{{comment.body}}</p>
+      (<small><em>{{date-time comment.date "fromTo"}}</em></small>)
+    </li>
   {{/each}}
 </ul>
 
