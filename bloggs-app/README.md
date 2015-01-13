@@ -10,7 +10,8 @@ The list below highlights where these are demonstrated :
  * computed properties - application.js has computed properties for the username
  * actions - these are present in all editing controllers, such as posts/post.js (edit, done, cancel)
 * helpers
- * 
+ * date-time - helper utilizing moment.js
+ * markdown-formatter.js - helper for markdown support, this is used when editing a blog
 * initializers
 * models
 * routes
