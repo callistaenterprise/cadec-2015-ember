@@ -13,11 +13,21 @@ The list below highlights where these are demonstrated :
  * date-time - helper utilizing moment.js
  * markdown-formatter.js - helper for markdown support, this is used when editing a blog
 * initializers
+ * session.js - this highlights ember's and ember cli's dependency injection mechanism.  In this example the session service is injected into all routes and controllers.
 * models
+ * posts domain - models consist of the definition of the models used by ember data in your aplication.  A models responsibility is for internal mirroring of your external rest api. In the bloggs-app we have the following models:
+  * post 1-* comment, user 1-* post and user 1-* comment
+  * more can be read on ember data and the metadata used for models here :http://emberjs.com/guides/models/
 * routes
+ * the routes mirror the setup in the router.js, and follow the nested structure specified there in.
 * serializers
+ * application.js - I'v created an application wide serializer for rest communication which overrides the serializeHasMany function. This is mainly to solve a bug or feature in ember data for the posting of * to many relationships.  This is also illustrates that the core components in ember are very much extendable.
 * services
+ * session.js - services in ember are Ember.Objects that should be shared with the major components ( controllers, routes etc ).  In our case we're using it to store session state in the browser which in our case is the current user.  An initialiser has been created to inject this session service into all routers and controllers, although it could as easily be injected into specific components.
 * templates
+ * the tamplates reflect the nested structure of the routes defined in router.js
+ * Partials - partials are used when in need of sharing templates between routes for example posts/p-edit.hbs is used for both editing ( posts/post.hbs ) and creating new posts ( posts/new.hbs )
+  * p-heading - is used as the partial for the heading of the application.
 
 ## Prerequisites
 
