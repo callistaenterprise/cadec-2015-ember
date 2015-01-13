@@ -1,7 +1,22 @@
-# Solution
+# Solution - bloggs-app
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Bloggs-app is used as the solution or reference application for the tutorial.  
+It's purpose is to demonstrate the core concepts of ember and ember cli.
+The list below highlights where these are demonstrated :
+* adapters
+ * application.js - demonstrates overriding the default namespace for the rest url, this would amount to all rest urls being prefixed with api, e.g. api/users, api/posts
+* components
+* controllers - these are present to reflect the routes in router.js
+ * computed properties - application.js has computed properties for the username
+ * actions - these are present in all editing controllers, such as posts/post.js (edit, done, cancel)
+* helpers
+ * 
+* initializers
+* models
+* routes
+* serializers
+* services
+* templates
 
 ## Prerequisites
 
@@ -16,7 +31,13 @@ You will need the following things properly installed on your computer.
 ## Installation
 
 * `git clone <repository-url>` this repository
-* change into the new directory
+* change into the cloned directory cadec-2015-ember
+* `cd cadec-2015-ember`
+* You will see a list of exercise and final solution ( bloggs-app ) directories. 
+* Cd into the bloggs-app dir
+* `cd bloggs-app`
+* Install both npm and bower module dependencies with :
+* 
 * `npm install`
 * `bower install`
 
