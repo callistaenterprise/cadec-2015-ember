@@ -25,9 +25,9 @@ The list below highlights where these are demonstrated :
 * services
  * session.js - services in ember are Ember.Objects that should be shared with the major components ( controllers, routes etc ).  In our case we're using it to store session state in the browser which in our case is the current user.  An initialiser has been created to inject this session service into all routers and controllers, although it could as easily be injected into specific components.
 * templates
- * the tamplates reflect the nested structure of the routes defined in router.js
+ * the templates reflect the nested structure of the routes defined in router.js
  * Partials - partials are used when in need of sharing templates between routes for example posts/p-edit.hbs is used for both editing ( posts/post.hbs ) and creating new posts ( posts/new.hbs )
-  * p-heading - is used as the partial for the heading of the application.
+   * p-heading - is used as the partial for the heading of the application.
 
 ## Prerequisites
 
