@@ -1,18 +1,18 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+// needs to be an ObjectController because we're working on 1 object!!
+export default Ember.ObjectController.extend({
   actions: {
-    save: function() {
+    done: function() {
       var self = this;
-      this.get('model').save().then(function() {
-        self.transitionToRoute('posts.index');
-      }, function(post) {
-        console.log('Error saving post: ' + post.get('title'));
-        self.transitionToRoute('posts');
+      this.get('model').save().then(function(post){
+        self.transitionToRoute('posts.post.comments', post.get('id'));
+      }, function(err) {
+        console.log(err);
       });
     },
-    cancel: function() {
-      this.get('model').deleteRecord();
+    cancel : function(post){
+      post.destroyRecord();
       this.transitionToRoute('posts');
     }
   }
