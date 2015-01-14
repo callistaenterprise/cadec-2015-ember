@@ -3,13 +3,13 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('adapter:application', 'ApplicationAdapter', {
+moduleFor('controller:posts/post/comments', 'PostsPostCommentsController', {
   // Specify the other units that are required for this test.
-  // needs: ['serializer:foo']
+  // needs: ['controller:foo']
 });
 
 // Replace this with your real tests.
 test('it exists', function() {
-  var adapter = this.subject();
-  ok(adapter);
+  var controller = this.subject();
+  ok(controller);
 });

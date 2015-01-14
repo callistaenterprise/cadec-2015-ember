@@ -1,9 +1,10 @@
-<div>
-    <h1>{{title}}</h1>
-</div>
-
-<div>
-  {{body}}
-</div>
-
+{{#if isEditing}}
+  {{partial "posts/p-edit"}}
+{{else}}
+  <button {{action "edit" this}} class="btn btn-default">Edit</button>
+{{/if}}
+<h3>{{title}}</h3>
+<p>{{body}}</p>
+<hr>
 {{outlet}}
+

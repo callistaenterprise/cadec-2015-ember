@@ -10,10 +10,9 @@ Router.map( function() {
     this.resource("posts.post", {
       path: ":post_id"
     }, function() {
-        this.resource("posts.post.comments", {
-          path: "comments"
-        }, function() {});
-      });
+      this.route("comments");
+    });
+    this.route("new");
   });
 });
 

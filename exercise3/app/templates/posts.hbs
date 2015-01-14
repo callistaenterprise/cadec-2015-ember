@@ -2,10 +2,10 @@
   <h1>Posts</h1>
   <hr>
 </div>
-
 <div class="row">
 
   <div class="col-md-3">
+    {{link-to 'New Post' 'posts.new' class="btn btn-default btn-lg"}}
     {{#each post in model}}
       <div>
         <h4>
@@ -19,10 +19,7 @@
   </div>
 
   <div class="col-sm-8 col-sm-offset-1">
-
-      {{outlet}}
-
+    {{outlet}}
   </div>
-
 
 </div>
