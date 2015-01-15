@@ -12,7 +12,8 @@ Router.map(function() {
     }, function() {
       this.resource("posts.post.comments", {
         path: "comments"
-      }, function() {});
+      }, function() {
+      });
     });
 
     this.route("new");
@@ -28,11 +29,12 @@ Router.map(function() {
   });
 
   this.resource("login", function() {
- 	this.route("login");
+    this.route("login");
     this.route("newUser");
   });
 
   this.route("logoff");
 });
 
-export default Router;
+export default
+Router;

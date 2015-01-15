@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	beforeModel: function() {
-	    this.transitionToRoute('login.login');
+	redirect: function() {
+	    this.transitionTo('login.login');
 	}
 });
