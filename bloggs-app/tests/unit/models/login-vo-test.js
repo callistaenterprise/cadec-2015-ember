@@ -1,15 +1,14 @@
 import {
-  moduleForModel,
+  moduleFor,
   test
-} from 'ember-qunit';
+  } from 'ember-qunit';
 
-moduleForModel('login-vo', 'LoginVO', {
+moduleFor('model:login-vo', 'LoginVo', {
   // Specify the other units that are required for this test.
-  needs: []
+  // needs: ['service:foo']
 });
 
 test('it exists', function() {
-  var model = this.subject();
-  // var store = this.store();
-  ok(!!model);
+  var loginVo = this.subject();
+  ok(!!loginVo);
 });

@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      {{#link-to 'posts' class='navbar-brand'}}Cadec Blogs{{/link-to}}
+      {{#link-to 'posts' class='navbar-brand'}}Callista Cadec 2015 - Bloggs App{{/link-to}}
     </div>
 
     <div class="collapse navbar-collapse">
@@ -19,18 +19,18 @@
       </ul>
 
 	    <ul class="nav navbar-nav navbar-right">
-	    	
+
 	      	{{#if isLoggedIn}}
 	        	<p class="navbar-text"> Signed in as {{username}} </p>
 				<li>{{#link-to 'logoff'}}<i class="fa fa-power-off"></i> Log off{{/link-to}}</li>
 	      	  {{else}}
 	        	<p class="navbar-text">{{#link-to 'login.login'}}{{username}}{{/link-to}}</p>
-	      	 	
+
 			  {{/if}}
-	    	 
-	        
+
+
 	    </ul>
-      
+
     </div>
     <!-- /.navbar-collapse -->
 

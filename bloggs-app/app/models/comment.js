@@ -6,3 +6,4 @@ export default DS.Model.extend({
   post: DS.belongsTo('post'),
   user: DS.belongsTo('user')
 });
+

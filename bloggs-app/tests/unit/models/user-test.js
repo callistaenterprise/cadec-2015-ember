@@ -1,3 +1,4 @@
+import Ember from "ember";
 import {
   moduleForModel,
   test
@@ -5,11 +6,16 @@ import {
 
 moduleForModel('user', 'User', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:comment', 'model:post']
 });
 
 test('it exists', function() {
-  var model = this.subject();
+  var user = this.subject();
+  Ember.run(function(){
+    user.set('firstName', 'stephen');
+    user.set('lastName', 'white');
+    equal(user.get('name'), 'stephen, white');
+  });
   // var store = this.store();
-  ok(!!model);
+  ok(!!user);
 });
