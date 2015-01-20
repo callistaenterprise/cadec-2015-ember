@@ -3,7 +3,9 @@
 </div>
 <ul class='comments'>
   {{#each comment in model}}
-    <li class="alert alert-info">{{comment.body}}<br>(<small><em>{{date-time comment.date "fromTo"}}</em></small>)</li>
+    <li class="alert alert-info"><small><em>{{comment.user.username}} says :</em></small><br>
+      {{comment.body}}<br>
+      (<small><em>{{date-time comment.date "fromTo"}}</em></small>)</li>
   {{/each}}
 </ul>
 <hr>

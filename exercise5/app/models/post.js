@@ -3,7 +3,8 @@ import DS from 'ember-data';
 var Post = DS.Model.extend({
   title: DS.attr('string'),
   body: DS.attr('string'),
-  comments : DS.hasMany('comment', {async:true})
+  comments : DS.hasMany('comment', {async:true}),
+  user: DS.belongsTo('user', {async:true})
 });
 
 Post.reopenClass({

@@ -4,7 +4,8 @@ import DS from 'ember-data';
 var Comment = DS.Model.extend({
   post: DS.belongsTo('post'),
   body: DS.attr('string'),
-  date: DS.attr('date')
+  date: DS.attr('date'),
+  user: DS.belongsTo('user', {async:true})
 });
 
 Comment.reopenClass({

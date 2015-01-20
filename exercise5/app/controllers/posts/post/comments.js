@@ -17,7 +17,8 @@ export default Ember.ArrayController.extend({
       var comment = self.store.createRecord('comment', {
         body : self.get('commentText'),
         date: now,
-        post: postModel
+        post: postModel,
+        user: this.session.get('currentUser')
       });
 
 
