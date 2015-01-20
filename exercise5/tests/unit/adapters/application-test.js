@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('adapter:post', 'PostAdapter', {
+moduleFor('adapter:application', 'ApplicationAdapter', {
   // Specify the other units that are required for this test.
   // needs: ['serializer:foo']
 });

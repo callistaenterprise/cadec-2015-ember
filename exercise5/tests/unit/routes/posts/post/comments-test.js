@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('route:posts/post/comment', 'PostsPostCommentRoute', {
+moduleFor('route:posts/post/comments', 'PostsPostCommentsRoute', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

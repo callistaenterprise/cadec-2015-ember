@@ -1,11 +1,11 @@
 import {
   moduleForModel,
   test
-} from 'ember-qunit';
+  } from 'ember-qunit';
 
 moduleForModel('post', 'Post', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:user', 'model:comment']
 });
 
 test('it exists', function() {
