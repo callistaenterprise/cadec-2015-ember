@@ -1,23 +1,21 @@
 <div class="page-header">
-  <h1>Comments</h1>
+    <h1>Comments</h1>
 </div>
 <ul class='comments'>
   {{#each comment in model}}
-    <li class="alert alert-info"><small><em>{{comment.user.username}} says :</em></small><br>
-      {{comment.body}}<br>
-      (<small><em>{{date-time comment.date "fromTo"}}</em></small>)</li>
+      <li class="alert alert-info">{{comment.body}}<br>(<small><em>{{date-time comment.date "fromTo"}}</em></small>)</li>
   {{/each}}
 </ul>
 <hr>
 {{#if isCommenting}}
-  <form>
-    <div class="form-group">
-      <label for="commentText">Comment :</label>
-      {{textarea value=commentText cols="50" rows="6" class="form-control" id="commentText"}}
-    </div>
-    <button {{action "post" this}} class="btn btn-default">Post</button>
-  </form>
+    <form>
+        <div class="form-group">
+            <label for="commentText">Comment :</label>
+          {{textarea value=commentText cols="50" rows="6" class="form-control" id="commentText"}}
+        </div>
+        <button {{action "post" this}} class="btn btn-default">Post</button>
+    </form>
 {{else}}
-  <button {{action "addComment" this}} class="btn btn-default">Add Comment</button>
+    <button {{action "addComment" this}} class="btn btn-default">Add Comment</button>
 {{/if}}
 {{outlet}}
