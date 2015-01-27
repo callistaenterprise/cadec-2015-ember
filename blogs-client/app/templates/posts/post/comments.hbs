@@ -2,7 +2,7 @@
 {{#each comment in model}}
     <p>
         <small><em>{{comment.user.username}} says :</em></small>
-        {{markdown-formatter comment.answer}}
+        {{markdown-formatter comment.body}}
         (<small><em>{{date-time comment.date "fromTo"}}</em></small>)
     </p>
   <hr>
