@@ -13,7 +13,6 @@ module('Login integration test', {
 });
 
 test("Page contents", function() {
-  expect(3);
   visit('/login').then(function() {
     equal(find('.navbar').length, 1, "Page contains a navbar");
     equal(find('.form-group').length, 1, "contains a form group for logging in");
