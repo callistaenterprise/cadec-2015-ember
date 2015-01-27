@@ -5,7 +5,7 @@
     <label for="username">User name</label>
     {{input type='text' value=username class="form-control" id="login-username" placeholder="username"}}
   </div>
-  <button {{action "login" this}} class="btn btn-default">Login</button>
+  <button {{action "login" this}} class="btn btn-default" id="btn-login">Login</button>
     {{#link-to 'login.newUser'}}New User{{/link-to}}
 </form>
 <hr>
